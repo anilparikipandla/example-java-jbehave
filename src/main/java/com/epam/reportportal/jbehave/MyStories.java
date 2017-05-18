@@ -1,4 +1,4 @@
-package simple;
+package com.epam.reportportal.jbehave;
 
 import org.apache.commons.lang.StringUtils;
 import org.jbehave.core.Embeddable;
@@ -17,8 +17,8 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.core.steps.ParameterConverters.ExamplesTableConverter;
-import simple.steps.ApiSteps;
-import simple.steps.MySteps;
+import com.epam.reportportal.jbehave.steps.ApiSteps;
+import com.epam.reportportal.jbehave.steps.MySteps;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -57,7 +57,8 @@ public class MyStories extends JUnitStories {
             .useStoryReporterBuilder(new StoryReporterBuilder()
                 .withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass))
                 .withDefaultFormats()
-                .withFormats(CONSOLE, TXT, HTML, XML))
+                .withFormats(CONSOLE, TXT, HTML, XML, ReportPortalFormat.INSTANCE))
+            .useViewGenerator(new ReportPortalViewGenerator())
             .useParameterConverters(parameterConverters);
     }
 

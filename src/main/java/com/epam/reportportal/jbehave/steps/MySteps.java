@@ -1,4 +1,4 @@
-package simple.steps;
+package com.epam.reportportal.jbehave.steps;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Pending;
